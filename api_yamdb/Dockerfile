@@ -1,5 +1,5 @@
 # Создать образ на основе базового слоя python
-FROM python:3.7-slim
+FROM python:3.9-slim
 
 #Сделать директорию рабочей
 WORKDIR /app
