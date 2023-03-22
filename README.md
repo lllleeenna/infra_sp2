@@ -2,10 +2,10 @@
 Проект YaMDb собирает отзывы пользователей на произведения. 
 
 ### Технологии:
-- Python 3.7
-- Django 2.2.16
+- Python 3.9
+- Django 3.2
 - djangorestframework 3.12.4
-- PostgreSQL
+- PostgreSQL 13
 - gunicorn
 - nginx
 - docker-compose
