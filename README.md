@@ -1,4 +1,4 @@
-## Проект «API для YaMDb»
+## Проект: запуск docker-compose для API YaMDb
 Проект YaMDb собирает отзывы пользователей на произведения. 
 
 ### Технологии:
@@ -67,32 +67,15 @@ docker-compose exec web python manage.py collectstatic --no-input
 docker-compose down -v
 ```
 
-### Заполнение базы данных контентом с использованием manage.py
-В папке /static/data/ находятся csv файлы с тестовыми данными для проекта YaMDb.
-
-Для заполнения пустой БД введите команду:
+### Заполнение базы данных контентом:
 ```
-python manage.py create_reviews
+docker-compose exec web python manage.py shell  
 ```
-
-Для заполнения одной таблицы, используйте аргумент -t(--table)
-Команда:
+``` 
+from django.contrib.contenttypes.models import ContentType
+ContentType.objects.all().delete()
+quit()
 ```
-python manage.py create_reviews --table category
 ```
-заполнить тестовыми данными таблицу category.
-
-Если ваша БД содержит тестовые данные и вы действительно хотите их перезаписать
-используйте аргумент --overwrite:
+docker-compose exec web python manage.py loaddata fixtures.json
 ```
-python manage.py create_reviews --overwrite
-```
-
-Для перезаписи данных одной таблицы используйтет команду:
-```
-python manage.py create_reviews --overwrite --table name_table
-```
-### Авторы:
-1. Лещикова Татьяна (https://github.com/LeschikovaTatyana)
-2. Дивногорская Ольга (https://github.com/OlyaDiv)
-3. Смурова Елена (https://github.com/lllleeenna)

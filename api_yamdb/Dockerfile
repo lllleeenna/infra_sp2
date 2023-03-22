@@ -5,7 +5,7 @@ FROM python:3.7-slim
 WORKDIR /app
 
 # Скопировать с локального компьютера в /app
-COPY . .
+COPY  . .
 
 # Выполнить установку зависимостей внутри контейнера
 RUN pip3 install -r requirements.txt --no-cache-dir
